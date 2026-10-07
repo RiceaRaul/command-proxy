@@ -1,0 +1,16 @@
+{
+  "rules": [
+    { "name": "npm-install", "description": "Drops deprecation, funding and audit hints", "args": ["install"], "mergeStderr": true, "onSuccess": [
+        { "step": "drop", "contains": ["npm warn deprecated", "npm WARN deprecated", "looking for funding", "npm fund", "npm audit", "To address ", "npm notice", "Some issues need review", "a different dependency"] },
+        { "step": "dropBlank" }
+      ] },
+    { "name": "npm-i", "args": ["i"], "mergeStderr": true, "onSuccess": [
+        { "step": "drop", "contains": ["npm warn deprecated", "npm WARN deprecated", "looking for funding", "npm fund", "npm audit", "To address ", "npm notice", "Some issues need review", "a different dependency"] },
+        { "step": "dropBlank" }
+      ] },
+    { "name": "npm-ci", "args": ["ci"], "mergeStderr": true, "onSuccess": [
+        { "step": "drop", "contains": ["npm warn deprecated", "npm WARN deprecated", "looking for funding", "npm fund", "npm audit", "To address ", "npm notice", "Some issues need review", "a different dependency"] },
+        { "step": "dropBlank" }
+      ] }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "name": "rg",
+      "description": "Matches grouped under each file, long lines and long result lists capped",
+      "args": [],
+      "unless": ["--json", "-c", "--count", "-l", "--files", "--heading", "--no-heading", "--vimgrep", "--help", "--version"],
+      "addArgs": ["--heading", "--line-number"],
+      "steps": [
+        { "step": "truncateLine", "n": 200 },
+        { "step": "maxLines", "n": 200 }
+      ]
+    }
+  ]
+}

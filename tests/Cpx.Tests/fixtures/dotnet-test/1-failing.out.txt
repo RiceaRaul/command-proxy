@@ -1,0 +1,13 @@
+  Failed Sample.MathTests.Subtracts [3 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  Stack Trace:
+     at Sample.MathTests.Subtracts() in UnitTest1.cs:line 5
+  Failed Sample.MathTests.Throws [< 1 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at Sample.MathTests.Throws() in UnitTest1.cs:line 6
+Failed!  - Failed:     2, Passed:     3, Skipped:     1, Total:     6, Duration: 22 ms - Sample.dll (net10.0)

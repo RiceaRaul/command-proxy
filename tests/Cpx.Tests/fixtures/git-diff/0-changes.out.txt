@@ -1,0 +1,23 @@
+diff --git a/src/file1.txt b/src/file1.txt
+--- a/src/file1.txt
++++ b/src/file1.txt
+@@ -1,6 +1,6 @@
+ line 1
+ alpha
+-beta
++BETA changed
+ gamma
+ delta
+ epsilon
+diff --git a/src/file2.txt b/src/file2.txt
+--- a/src/file2.txt
++++ b/src/file2.txt
+@@ -1,7 +1,7 @@
+ line 2
+ alpha
+ beta
+-gamma
++GAMMA
+ delta
+ epsilon
+ zeta

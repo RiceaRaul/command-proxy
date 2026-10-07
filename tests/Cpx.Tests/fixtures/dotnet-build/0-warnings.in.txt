@@ -1,0 +1,18 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+/work/app/Extra.cs(4,49): warning CS8600: Converting null literal or possible null value to non-nullable type. [/work/app/Sample.csproj]
+/work/app/Extra.cs(4,31): warning CS0219: The variable 'x' is assigned but its value is never used [/work/app/Sample.csproj]
+/work/app/Extra.cs(4,45): warning CS0219: The variable 's' is assigned but its value is never used [/work/app/Sample.csproj]
+/work/app/Extra.cs(6,36): warning CS0618: 'Extra.Old()' is obsolete: 'old' [/work/app/Sample.csproj]
+  Sample -> /work/app/bin/Debug/net10.0/Sample.dll
+
+Build succeeded.
+
+/work/app/Extra.cs(4,49): warning CS8600: Converting null literal or possible null value to non-nullable type. [/work/app/Sample.csproj]
+/work/app/Extra.cs(4,31): warning CS0219: The variable 'x' is assigned but its value is never used [/work/app/Sample.csproj]
+/work/app/Extra.cs(4,45): warning CS0219: The variable 's' is assigned but its value is never used [/work/app/Sample.csproj]
+/work/app/Extra.cs(6,36): warning CS0618: 'Extra.Old()' is obsolete: 'old' [/work/app/Sample.csproj]
+    4 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.90

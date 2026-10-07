@@ -1,0 +1,23 @@
+npm warn deprecated @types/marked@6.0.0: This is a stub types definition. marked provides its own type definitions, so you do not need this installed.
+npm warn deprecated @angular/platform-browser-dynamic@21.2.12: @angular/platform-browser-dynamic is deprecated. Use `@angular/platform-browser` instead.
+npm warn deprecated @angular/animations@21.2.12: @angular/animations is deprecated. Use `animate.enter` and `animate.leave` instead. For more information see: https://v22.angular.dev/guide/animations.
+
+> angular-realworld@0.0.0 prepare
+> husky install
+
+husky - install command is DEPRECATED
+
+added 520 packages, and audited 521 packages in 37s
+
+127 packages are looking for funding
+  run `npm fund` for details
+
+20 vulnerabilities (2 low, 5 moderate, 12 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.

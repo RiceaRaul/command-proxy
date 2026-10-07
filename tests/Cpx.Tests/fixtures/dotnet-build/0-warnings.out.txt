@@ -1,0 +1,4 @@
+Extra.cs(4,49): warning CS8600: Converting null literal or possible null value to non-nullable type.
+Extra.cs(4,31): warning CS0219: The variable 'x' is assigned but its value is never used
+Extra.cs(4,45): warning CS0219: The variable 's' is assigned but its value is never used
+Extra.cs(6,36): warning CS0618: 'Extra.Old()' is obsolete: 'old'

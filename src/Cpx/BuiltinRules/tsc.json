@@ -1,0 +1,14 @@
+{
+  "rules": [
+    { "name": "tsc", "description": "Type errors only, capped", "args": [], "unless": ["--watch", "-w", "--help", "--init"],
+      "onSuccess": [
+        { "step": "dropBlank" },
+        { "step": "onEmpty", "message": "ok (no type errors)" }
+      ],
+      "onFailure": [
+        { "step": "dropBlank" },
+        { "step": "dedupe" },
+        { "step": "maxLines", "n": 60 }
+      ] }
+  ]
+}

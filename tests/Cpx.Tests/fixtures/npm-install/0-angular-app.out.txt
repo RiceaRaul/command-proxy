@@ -1,0 +1,5 @@
+> angular-realworld@0.0.0 prepare
+> husky install
+husky - install command is DEPRECATED
+added 520 packages, and audited 521 packages in 37s
+20 vulnerabilities (2 low, 5 moderate, 12 high, 1 critical)

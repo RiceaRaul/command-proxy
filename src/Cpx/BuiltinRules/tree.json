@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "name": "tree",
+      "description": "Long listings capped",
+      "args": [],
+      "steps": [
+        { "step": "maxLines", "n": 200 }
+      ]
+    }
+  ]
+}

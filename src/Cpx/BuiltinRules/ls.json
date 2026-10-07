@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "name": "ls",
+      "description": "Long listings lose permissions, link count, owner and group",
+      "args": [],
+      "steps": [
+        { "step": "drop", "regex": "^total \\d+" },
+        { "step": "replace", "regex": "^([-dlcbps])[-rwxsStT]{9}[+.@]?\\s+\\d+\\s+\\S+\\s+\\S+\\s+", "with": "$1 " },
+        { "step": "maxLines", "n": 200 }
+      ]
+    }
+  ]
+}

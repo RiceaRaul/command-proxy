@@ -1,0 +1,11 @@
+./src/file3.txt
+2:alpha
+
+./src/file1.txt
+2:alpha
+
+./src/renamed.txt
+2:alpha
+
+./src/file2.txt
+2:alpha

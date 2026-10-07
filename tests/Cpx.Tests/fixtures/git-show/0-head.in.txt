@@ -1,0 +1,15 @@
+commit 3fb805154b332055fe837714374218cc0611127c
+Author: Dev <dev@example.com>
+Date:   Tue Jan 6 10:00:00 2026 +0200
+
+    Expand readme
+    
+    Body text that explains the change in more detail.
+
+diff --git a/README.md b/README.md
+index 0805455..13b4616 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # Demo
++more

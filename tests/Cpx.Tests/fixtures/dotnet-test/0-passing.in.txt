@@ -1,0 +1,7 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Sample -> /work/app/bin/Debug/net10.0/Sample.dll
+Test run for /work/app/bin/Debug/net10.0/Sample.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 17 ms - Sample.dll (net10.0)

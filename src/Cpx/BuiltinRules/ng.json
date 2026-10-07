@@ -1,0 +1,68 @@
+{
+  "rules": [
+    {
+      "name": "ng-build",
+      "description": "Drops the progress lines; errors and the bundle table stay",
+      "args": [
+        "build"
+      ],
+      "unless": [
+        "--watch"
+      ],
+      "mergeStderr": true,
+      "steps": [
+        {
+          "step": "stripAnsi"
+        },
+        {
+          "step": "drop",
+          "contains": [
+            "Building..."
+          ]
+        },
+        {
+          "step": "relativePaths"
+        },
+        {
+          "step": "dedupe",
+          "adjacent": true
+        }
+      ]
+    },
+    {
+      "name": "ng-test",
+      "description": "Drops colours, progress, the spec bundle table and separator lines; test results and failure details stay",
+      "args": [
+        "test"
+      ],
+      "mergeStderr": true,
+      "steps": [
+        {
+          "step": "stripAnsi"
+        },
+        {
+          "step": "drop",
+          "contains": [
+            "Building...",
+            "Application bundle generation complete."
+          ]
+        },
+        {
+          "step": "drop",
+          "regex": "^(Initial|Lazy) chunk files\\s+\\||\\|\\s+[\\d.]+ (bytes|kB|MB)\\b"
+        },
+        {
+          "step": "drop",
+          "regex": "^[⎯\\[\\]/\\d]+$"
+        },
+        {
+          "step": "relativePaths"
+        },
+        {
+          "step": "dedupe",
+          "adjacent": true
+        }
+      ]
+    }
+  ]
+}

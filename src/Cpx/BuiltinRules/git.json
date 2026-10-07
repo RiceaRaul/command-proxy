@@ -1,0 +1,95 @@
+{
+  "rules": [
+    {
+      "name": "git-status",
+      "description": "Short format with branch line",
+      "args": ["status"],
+      "unless": ["--porcelain", "--short", "-s", "-z", "--long"],
+      "addArgs": ["--short", "--branch"],
+      "steps": [
+        { "step": "maxLines", "n": 100 }
+      ]
+    },
+    {
+      "name": "git-diff",
+      "description": "Drops blob hash lines, caps very long lines and very long diffs",
+      "args": ["diff"],
+      "unless": ["--stat", "--name-only", "--name-status", "--numstat", "--shortstat"],
+      "steps": [
+        { "step": "drop", "regex": "^index [0-9a-f]+\\.\\.[0-9a-f]+" },
+        { "step": "truncateLine", "n": 500 },
+        { "step": "maxLines", "n": 500 }
+      ]
+    },
+    {
+      "name": "git-show",
+      "description": "Same treatment as git diff",
+      "args": ["show"],
+      "unless": ["--stat", "--name-only", "--name-status", "--numstat", "--shortstat"],
+      "steps": [
+        { "step": "drop", "regex": "^index [0-9a-f]+\\.\\.[0-9a-f]+" },
+        { "step": "truncateLine", "n": 500 },
+        { "step": "maxLines", "n": 500 }
+      ]
+    },
+    {
+      "name": "git-log",
+      "description": "One line per commit, 30 commits unless a count is given",
+      "args": ["log"],
+      "unless": ["--oneline", "--format", "--pretty", "-p", "--patch", "--stat", "--graph", "--name-only", "--name-status"],
+      "addArgs": ["--max-count=30", "--date=short", "--pretty=format:%h %ad %an: %s"],
+      "steps": [
+        { "step": "truncateLine", "n": 160 }
+      ]
+    },
+    {
+      "name": "git-add",
+      "args": ["add"],
+      "mergeStderr": true,
+      "onSuccess": [
+        { "step": "dropBlank" },
+        { "step": "onEmpty", "message": "ok" }
+      ]
+    },
+    {
+      "name": "git-commit",
+      "description": "Keeps the commit line and the change summary",
+      "args": ["commit"],
+      "mergeStderr": true,
+      "onSuccess": [
+        { "step": "drop", "regex": "^ (create|delete) mode |^ rename |^ mode change " },
+        { "step": "dropBlank" }
+      ]
+    },
+    {
+      "name": "git-push",
+      "args": ["push"],
+      "mergeStderr": true,
+      "onSuccess": [
+        { "step": "drop", "contains": ["Enumerating objects", "Counting objects", "Delta compression", "Compressing objects", "Writing objects", "Resolving deltas", "Total "] },
+        { "step": "dropBlank" },
+        { "step": "onEmpty", "message": "ok" }
+      ]
+    },
+    {
+      "name": "git-pull",
+      "args": ["pull"],
+      "mergeStderr": true,
+      "onSuccess": [
+        { "step": "drop", "contains": ["Enumerating objects", "Counting objects", "Compressing objects", "Unpacking objects", "Receiving objects", "Resolving deltas", "Total "] },
+        { "step": "dropBlank" },
+        { "step": "onEmpty", "message": "ok" }
+      ]
+    },
+    {
+      "name": "git-fetch",
+      "args": ["fetch"],
+      "mergeStderr": true,
+      "onSuccess": [
+        { "step": "drop", "contains": ["Enumerating objects", "Counting objects", "Compressing objects", "Unpacking objects", "Receiving objects", "Resolving deltas", "Total "] },
+        { "step": "dropBlank" },
+        { "step": "onEmpty", "message": "ok" }
+      ]
+    }
+  ]
+}

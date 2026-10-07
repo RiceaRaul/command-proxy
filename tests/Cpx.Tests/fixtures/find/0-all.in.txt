@@ -1,0 +1,6 @@
+./README.md
+./src/renamed.txt
+./src/new.txt
+./src/file2.txt
+./src/file1.txt
+./src/file3.txt

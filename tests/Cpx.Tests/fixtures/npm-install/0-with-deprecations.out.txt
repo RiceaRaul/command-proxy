@@ -1,0 +1,2 @@
+added 48 packages, and audited 49 packages in 2s
+5 vulnerabilities (3 moderate, 2 critical)

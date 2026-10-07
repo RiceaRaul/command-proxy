@@ -1,0 +1,104 @@
+{
+  "rules": [
+    {
+      "name": "npx-tsc",
+      "description": "Type errors only, capped",
+      "args": [
+        "tsc"
+      ],
+      "unless": [
+        "--watch",
+        "-w",
+        "--help",
+        "--init"
+      ],
+      "onSuccess": [
+        {
+          "step": "dropBlank"
+        },
+        {
+          "step": "onEmpty",
+          "message": "ok (no type errors)"
+        }
+      ],
+      "onFailure": [
+        {
+          "step": "dropBlank"
+        },
+        {
+          "step": "dedupe"
+        },
+        {
+          "step": "maxLines",
+          "n": 60
+        }
+      ]
+    },
+    {
+      "name": "npx-ng-build",
+      "description": "Drops the progress lines; errors and the bundle table stay",
+      "args": [
+        "ng",
+        "build"
+      ],
+      "unless": [
+        "--watch"
+      ],
+      "mergeStderr": true,
+      "steps": [
+        {
+          "step": "stripAnsi"
+        },
+        {
+          "step": "drop",
+          "contains": [
+            "Building..."
+          ]
+        },
+        {
+          "step": "relativePaths"
+        },
+        {
+          "step": "dedupe",
+          "adjacent": true
+        }
+      ]
+    },
+    {
+      "name": "npx-ng-test",
+      "description": "Drops colours, progress, the spec bundle table and separator lines; test results and failure details stay",
+      "args": [
+        "ng",
+        "test"
+      ],
+      "mergeStderr": true,
+      "steps": [
+        {
+          "step": "stripAnsi"
+        },
+        {
+          "step": "drop",
+          "contains": [
+            "Building...",
+            "Application bundle generation complete."
+          ]
+        },
+        {
+          "step": "drop",
+          "regex": "^(Initial|Lazy) chunk files\\s+\\||\\|\\s+[\\d.]+ (bytes|kB|MB)\\b"
+        },
+        {
+          "step": "drop",
+          "regex": "^[⎯\\[\\]/\\d]+$"
+        },
+        {
+          "step": "relativePaths"
+        },
+        {
+          "step": "dedupe",
+          "adjacent": true
+        }
+      ]
+    }
+  ]
+}

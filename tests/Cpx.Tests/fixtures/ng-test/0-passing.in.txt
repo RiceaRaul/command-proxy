@@ -1,0 +1,23 @@
+❯ Building...
+✔ Building...
+Initial chunk files  | Names             |  Raw size
+spec-app-app.js      | spec-app-app      |  47.59 kB | 
+chunk-CGZBV6BD.js    | -                 |   4.12 kB | 
+init-testbed.js      | init-testbed      |   2.27 kB | 
+vitest-mock-patch.js | vitest-mock-patch | 988 bytes | 
+init-compiler.js     | init-compiler     | 166 bytes | 
+styles.css           | styles            |  56 bytes | 
+
+                     | Initial total     |  55.19 kB
+
+Application bundle generation complete. [1.068 seconds] - 2026-10-07T15:40:14.839Z
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/work/app[39m
+
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m   Start at [22m 18:40:15
+[2m   Duration [22m 849ms[2m (environment 58%, setup 22%, tests 9%, transform 6%, import 5%, worker 1%)[22m
+

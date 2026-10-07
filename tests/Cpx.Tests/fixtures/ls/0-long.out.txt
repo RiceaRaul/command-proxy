@@ -1,0 +1,7 @@
+d 140 oct  7 17:36 .
+d 100 oct  7 17:36 ..
+- 55 oct  7 17:36 file1.txt
+- 47 oct  7 17:36 file2.txt
+- 47 oct  7 17:36 file3.txt
+- 4 oct  7 17:36 new.txt
+- 47 oct  7 17:36 renamed.txt

@@ -1,0 +1,5 @@
+[main 4267e4f] Rework files
+ 5 files changed, 3 insertions(+), 10 deletions(-)
+ delete mode 100644 src/file5.txt
+ create mode 100644 src/new.txt
+ rename src/{file4.txt => renamed.txt} (100%)

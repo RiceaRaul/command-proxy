@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+/work/app/Broken.cs(6,33): error CS1002: ; expected [/work/app/Sample.csproj]
+
+Build FAILED.
+
+/work/app/Broken.cs(6,33): error CS1002: ; expected [/work/app/Sample.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.76

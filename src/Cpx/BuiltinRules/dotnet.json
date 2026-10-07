@@ -1,0 +1,61 @@
+{
+  "rules": [
+    {
+      "name": "dotnet-build",
+      "description": "Only diagnostics, each one once, with paths relative to the working directory",
+      "args": ["build"],
+      "addArgs": ["-nologo", "-tl:off", "-clp:NoSummary"],
+      "onSuccess": [
+        { "step": "keep", "contains": [": warning "] },
+        { "step": "replace", "regex": "\\s+\\[[^\\]]+proj(::[^\\]]*)?\\]$", "with": "" },
+        { "step": "relativePaths" },
+        { "step": "dedupe" },
+        { "step": "maxLines", "n": 30 },
+        { "step": "onEmpty", "message": "ok (build succeeded)" }
+      ],
+      "onFailure": [
+        { "step": "keep", "contains": [": error "] },
+        { "step": "replace", "regex": "\\s+\\[[^\\]]+proj(::[^\\]]*)?\\]$", "with": "" },
+        { "step": "relativePaths" },
+        { "step": "dedupe" },
+        { "step": "maxLines", "n": 80 }
+      ]
+    },
+    {
+      "name": "dotnet-test",
+      "description": "Failed tests with message and stack trace, build errors, run summary",
+      "args": ["test"],
+      "addArgs": ["--nologo", "-tl:off"],
+      "steps": [
+        { "step": "builtin", "name": "dotnet-test" },
+        { "step": "relativePaths" },
+        { "step": "replace", "regex": "\\s+\\[[^\\]]+proj(::[^\\]]*)?\\]$", "with": "" },
+        { "step": "maxLines", "n": 150 }
+      ]
+    },
+    {
+      "name": "dotnet-restore",
+      "args": ["restore"],
+      "onSuccess": [
+        { "step": "keep", "contains": [": warning ", ": error "] },
+        { "step": "relativePaths" },
+        { "step": "dedupe" },
+        { "step": "onEmpty", "message": "ok (restored)" }
+      ],
+      "onFailure": [
+        { "step": "keep", "contains": [": error "] },
+        { "step": "relativePaths" },
+        { "step": "dedupe" }
+      ]
+    },
+    {
+      "name": "dotnet-ef",
+      "description": "Drops the build chatter around EF Core tools",
+      "args": ["ef"],
+      "onSuccess": [
+        { "step": "drop", "contains": ["Build started...", "Build succeeded."] },
+        { "step": "dropBlank" }
+      ]
+    }
+  ]
+}

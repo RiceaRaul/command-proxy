@@ -1,0 +1,13 @@
+{
+  "rules": [
+    {
+      "name": "grep",
+      "description": "Long lines and long result lists capped",
+      "args": [],
+      "steps": [
+        { "step": "truncateLine", "n": 200 },
+        { "step": "maxLines", "n": 200 }
+      ]
+    }
+  ]
+}

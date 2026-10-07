@@ -1,0 +1,2 @@
+up to date, audited 49 packages in 557ms
+5 vulnerabilities (3 moderate, 2 critical)

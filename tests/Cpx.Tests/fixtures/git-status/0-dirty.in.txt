@@ -1,0 +1,6 @@
+## main
+ M src/file1.txt
+ M src/file2.txt
+D  src/file5.txt
+R  src/file4.txt -> src/renamed.txt
+?? src/new.txt

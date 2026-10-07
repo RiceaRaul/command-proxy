@@ -1,0 +1,2 @@
+# Recorded command output: keep bytes exactly as captured on every platform.
+tests/Cpx.Tests/fixtures/** -text
